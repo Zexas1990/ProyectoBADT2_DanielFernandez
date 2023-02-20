@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProyectoBADT2_DanielFernandez</string>
+    <string name="btn_filtro">Filtro</string>
+    <string name="btn_consultar">Consultar</string>
+    <string name="tv_filtro">Filtro Seleccionado</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
