@@ -1,5 +1,6 @@
 package com.dam.proyectobadt2_danielfernandez;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -26,9 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         btnFil.setOnClickListener((new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FiltroDialog dialog = new FiltroDialog();
+                dialog.show(getSupportFragmentManager(), "FiltroDialog");
 
             }
         }));
@@ -41,4 +45,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
     }
+
+
 }
