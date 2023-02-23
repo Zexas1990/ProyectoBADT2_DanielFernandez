@@ -88,4 +88,16 @@ public class Terremoto {
     public void setCantidadMuertos(String cantidadMuertos) {
         this.cantidadMuertos = cantidadMuertos;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                 fechaHora + '\'' +
+                 nombreDispositivo + '\'' +
+                magnitud +
+                coordenadasEpicentro + '\'' +
+                lugar + '\'' +
+                cantidadMuertos + '\'' +
+                '}';
+    }
 }

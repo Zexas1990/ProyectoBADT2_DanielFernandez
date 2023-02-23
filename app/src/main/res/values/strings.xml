@@ -6,4 +6,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="filtro">Opciones de Filtro</string>
+    <string name="tv_mes">Mes elegido</string>
+    <string name="tv_año">Año Elegido</string>
+    <string name="et_año">Año</string>
 </resources>

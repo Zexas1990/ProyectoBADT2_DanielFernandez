@@ -6,9 +6,11 @@ import java.util.ArrayList;
 
 public class ListaTerremotos {
 
-    private ArrayList<Terremoto> listaTerremotos;
+    private static ArrayList<Terremoto> listaTerremotos = null;
 
-    public ListaTerremotos(){
+    public static ArrayList<Terremoto> getListaTerremotos() {
+        if (listaTerremotos != null)
+            return listaTerremotos;
         listaTerremotos = new ArrayList<>();
         listaTerremotos.add(new Terremoto("22 de mayo de 1960, 15:11", 9.5, "Terremoto de Valdivia de 1960", "Valdivia, Región de los Ríos", "38°14′24″S 73°3′0″O", "1655 a 2000"));
         listaTerremotos.add(new Terremoto("26 de diciembre de 2004, 07:58", 9.3, "Terremoto del océano Índico de 2004", "Frente al norte de la isla de Sumatra", "Sin datos", "230270"));
@@ -36,7 +38,10 @@ public class ListaTerremotos {
         listaTerremotos.add(new Terremoto("23 de junio de 2001, 15:33", 8.4, "Terremoto del sur del Perú de 2001", "Departamentos de Arequipa, Moquegua y Tacna", "16°15′36″S 73°38′24″O", "102"));
         listaTerremotos.add(new Terremoto("6 de febrero de 2023, 01:17", 7.8, "Terremoto de Turquía y Siria 2023", "Turquía, Siria", "37°10′26″N 37°01′55″E", "40120"));
 
+        System.out.println("------TEST------");
+        System.out.println(listaTerremotos);
+        System.out.println("------TEST------");
+        return listaTerremotos;
     }
-
 
 }

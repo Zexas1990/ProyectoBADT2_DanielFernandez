@@ -40,4 +40,8 @@ public class ListaPaises {
         listaPaises.add(new PaisAfectado("23 de junio de 2001, 15:33", "Perú"));
 
     }
+
+    public ArrayList<PaisAfectado> getListaPaises() {
+        return listaPaises;
+    }
 }

@@ -2,16 +2,49 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/margin"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/tvPie"
+        android:id="@+id/tvMes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HOLA"
+        android:text="@string/tv_mes"
+        android:textSize="@dimen/filtro"
         android:textAlignment="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+    
+    <Spinner
+        android:id="@+id/spnMes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/meses"
+        app:layout_constraintTop_toBottomOf="@+id/tvMes"
+        app:layout_constraintStart_toStartOf="@+id/tvMes"
+        />
+
+    <TextView
+        android:id="@+id/tvAño"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_año"
+        android:textSize="@dimen/filtro"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/spnMes"
+        />
+
+    <EditText
+        android:id="@+id/etAño"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="@string/et_año"
+        app:layout_constraintTop_toBottomOf="@+id/tvAño"
+        app:layout_constraintStart_toStartOf="@+id/tvAño"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
