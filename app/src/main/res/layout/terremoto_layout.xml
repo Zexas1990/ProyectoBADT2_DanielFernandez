@@ -2,14 +2,71 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/margin"
-    android:background="@color/green">
+    android:background="@color/green"
+    android:layout_marginBottom="@dimen/margin">
 
 
     <TextView
-        android:id="@+id/tvAdapter"
-        android:layout_width="match_parent"
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
+        android:text="Nombre terremoto"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvMagnitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Magnitud"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/margin" />
+
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <TextView
+        android:id="@+id/tvCordenadas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cordenadas: "
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvFecha"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <TextView
+
+        android:id="@+id/tvNumMuertos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Muertos"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvMagnitud"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <TextView
+        android:id="@+id/tvLugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lugar"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/tvCordenadas"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/margin"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

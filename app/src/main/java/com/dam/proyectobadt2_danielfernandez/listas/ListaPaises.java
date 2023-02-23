@@ -1,14 +1,17 @@
 package com.dam.proyectobadt2_danielfernandez.listas;
 
 import com.dam.proyectobadt2_danielfernandez.entity.PaisAfectado;
+import com.dam.proyectobadt2_danielfernandez.entity.Terremoto;
 
 import java.util.ArrayList;
 
 public class ListaPaises {
 
-    private ArrayList<PaisAfectado> listaPaises;
+    private static ArrayList<PaisAfectado> listaPaises = null;
 
-    public ListaPaises(){
+    public static ArrayList<PaisAfectado> getListaPaises() {
+        if (listaPaises != null)
+            return listaPaises;
         listaPaises = new ArrayList<>();
         listaPaises.add(new PaisAfectado("22 de mayo de 1960, 15:11", "Chile"));
         listaPaises.add(new PaisAfectado("26 de diciembre de 2004, 07:58", "Indonesia"));
@@ -39,9 +42,8 @@ public class ListaPaises {
         listaPaises.add(new PaisAfectado("16 de septiembre de 2015, 19:54", "Chile"));
         listaPaises.add(new PaisAfectado("23 de junio de 2001, 15:33", "Perú"));
 
-    }
-
-    public ArrayList<PaisAfectado> getListaPaises() {
         return listaPaises;
     }
+
+
 }

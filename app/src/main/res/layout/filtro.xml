@@ -45,6 +45,24 @@
         app:layout_constraintStart_toStartOf="@+id/tvAño"
         />
 
+    <TextView
+        android:id="@+id/tvPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_pais"
+        android:textSize="@dimen/filtro"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/etAño"/>
+
+    <Spinner
+        android:id="@+id/spnPais"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dialog"
+        app:layout_constraintTop_toBottomOf="@+id/tvPais"
+        app:layout_constraintStart_toStartOf="@+id/tvPais"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

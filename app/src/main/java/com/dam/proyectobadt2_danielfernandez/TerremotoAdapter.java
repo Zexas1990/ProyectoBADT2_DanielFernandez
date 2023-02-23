@@ -38,18 +38,37 @@ public class TerremotoAdapter extends RecyclerView.Adapter<TerremotoAdapter.Terr
     }
 
 
+
     public static class TerremotoVH extends RecyclerView.ViewHolder {
-        TextView tvAdapter;
+        TextView tvNombre;
+        TextView tvMagnitud;
+        TextView tvFecha;
+        TextView tvCordenadas;
+        TextView tvMuertos;
+        TextView tvLugar;
 
 
         public TerremotoVH(@NonNull View itemView) {
             super(itemView);
-            tvAdapter = itemView.findViewById(R.id.tvAdapter);
+            tvNombre = itemView.findViewById(R.id.tvNombre);
+            tvMagnitud = itemView.findViewById(R.id.tvMagnitud);
+            tvFecha = itemView.findViewById(R.id.tvFecha);
+            tvCordenadas = itemView.findViewById(R.id.tvCordenadas);
+            tvMuertos = itemView.findViewById(R.id.tvNumMuertos);
+            tvLugar = itemView.findViewById(R.id.tvLugar);
+
+
 
         }
 
         public void bindTerremoto(Terremoto terremoto){
-            tvAdapter.setText(terremoto.toString());
+
+            tvNombre.setText(terremoto.getNombre());
+            tvMagnitud.setText((int) terremoto.getMagnitud());
+            tvFecha.setText(terremoto.getFecha());
+            tvCordenadas.setText(terremoto.getCordenadas());
+            tvMuertos.setText(terremoto.getMuertos());
+            tvLugar.setText(terremoto.getLugar());
         }
 
     }

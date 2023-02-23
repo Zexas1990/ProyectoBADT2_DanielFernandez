@@ -41,19 +41,19 @@ public class Terremoto {
     }
 
     @NonNull
-    public String getFechaHora() {
+    public String getFecha() {
         return fechaHora;
     }
 
-    public void setFechaHora(@NonNull String fechaHora) {
+    public void setFecha(@NonNull String fechaHora) {
         this.fechaHora = fechaHora;
     }
 
-    public String getNombreDispositivo() {
+    public String getNombre() {
         return nombreDispositivo;
     }
 
-    public void setNombreDispositivo(String nombreDispositivo) {
+    public void setNombre(String nombreDispositivo) {
         this.nombreDispositivo = nombreDispositivo;
     }
 
@@ -65,11 +65,11 @@ public class Terremoto {
         this.magnitud = magnitud;
     }
 
-    public String getCoordenadasEpicentro() {
+    public String getCordenadas() {
         return coordenadasEpicentro;
     }
 
-    public void setCoordenadasEpicentro(String coordenadasEpicentro) {
+    public void setCordenadas(String coordenadasEpicentro) {
         this.coordenadasEpicentro = coordenadasEpicentro;
     }
 
@@ -81,11 +81,11 @@ public class Terremoto {
         this.lugar = lugar;
     }
 
-    public String getCantidadMuertos() {
+    public String getMuertos() {
         return cantidadMuertos;
     }
 
-    public void setCantidadMuertos(String cantidadMuertos) {
+    public void setMuertos(String cantidadMuertos) {
         this.cantidadMuertos = cantidadMuertos;
     }
 

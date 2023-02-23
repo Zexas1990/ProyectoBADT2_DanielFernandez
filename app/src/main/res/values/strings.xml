@@ -9,4 +9,8 @@
     <string name="tv_mes">Mes elegido</string>
     <string name="tv_año">Año Elegido</string>
     <string name="et_año">Año</string>
+    <string name="btn_aceptar">Aceptar</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="tv_pais">Pais Elegido</string>
+    <string name="et_pais">Pais</string>
 </resources>

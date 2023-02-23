@@ -13,6 +13,9 @@ public interface TerremotosDao {
 
     @Query("SELECT * FROM TERREMOTOS ORDER BY MAGNITUD DESC")
     public List<Terremoto> getAll();
+
+    @Insert
+    void insertAll(List<Terremoto> terremotos);
 /*
     //Si se ha seleccionado un mes, se mostrarán los terremotos cuya fecha contenga el mes seleccionado.
     @Query("SELECT * FROM TERREMOTOS WHERE fechaHora LIKE '%:mes%'")
@@ -50,8 +53,7 @@ public interface TerremotosDao {
     public Terremoto filtroMesAnoPais(String mes, String ano, String pais);
 
 
-    @Insert
-    void insertAll(List<Terremoto> terremotos);
+
 */
 
     
