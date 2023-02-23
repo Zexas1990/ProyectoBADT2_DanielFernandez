@@ -5,6 +5,10 @@
     android:padding="@dimen/margin"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
+
+
     <TextView
         android:id="@+id/tvMes"
         android:layout_width="match_parent"
@@ -15,14 +19,22 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
+
+    <CheckBox
+        android:id="@+id/chkMes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvMes"
+        app:layout_constraintStart_toStartOf="parent"/>
     
     <Spinner
         android:id="@+id/spnMes"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/meses"
-        app:layout_constraintTop_toBottomOf="@+id/tvMes"
-        app:layout_constraintStart_toStartOf="@+id/tvMes"
+        app:layout_constraintTop_toTopOf="@id/chkMes"
+        app:layout_constraintStart_toEndOf="@id/chkMes"
+        app:layout_constraintBottom_toBottomOf="@id/chkMes"
         />
 
     <TextView
@@ -32,17 +44,25 @@
         android:text="@string/tv_año"
         android:textSize="@dimen/filtro"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/spnMes"
+        app:layout_constraintTop_toBottomOf="@+id/chkMes"
         />
 
+    <CheckBox
+        android:id="@+id/chkAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvAño"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <EditText
-        android:id="@+id/etAño"
-        android:layout_width="match_parent"
+        android:id="@+id/etAno"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:hint="@string/et_año"
-        app:layout_constraintTop_toBottomOf="@+id/tvAño"
-        app:layout_constraintStart_toStartOf="@+id/tvAño"
+        app:layout_constraintTop_toTopOf="@id/chkAno"
+        app:layout_constraintStart_toEndOf="@id/chkAno"
+        app:layout_constraintBottom_toBottomOf="@id/chkAno"
         />
 
     <TextView
@@ -52,15 +72,23 @@
         android:text="@string/tv_pais"
         android:textSize="@dimen/filtro"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/etAño"/>
+        app:layout_constraintTop_toBottomOf="@+id/chkAno"/>
+
+    <CheckBox
+        android:id="@+id/chkPais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvPais"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <Spinner
         android:id="@+id/spnPais"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:spinnerMode="dialog"
-        app:layout_constraintTop_toBottomOf="@+id/tvPais"
-        app:layout_constraintStart_toStartOf="@+id/tvPais"
+        app:layout_constraintTop_toTopOf="@id/chkPais"
+        app:layout_constraintStart_toEndOf="@id/chkPais"
+        app:layout_constraintBottom_toBottomOf="@id/chkPais"
         />
 
 

@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -20,6 +21,9 @@ public class FiltroDialog extends DialogFragment {
     Spinner spnMes;
     EditText etAno;
     Spinner spnPais;
+    CheckBox cbPais;
+    CheckBox cbMes;
+    CheckBox cbAno;
     PaisesAfectadosDao paisesAfectadosDao;
 
     @NonNull
@@ -29,8 +33,11 @@ public class FiltroDialog extends DialogFragment {
 
 
         spnMes = v.findViewById(R.id.spnMes);
-        etAno = v.findViewById(R.id.etAño);
+        etAno = v.findViewById(R.id.etAno);
         spnPais = v.findViewById(R.id.spnPais);
+        cbPais = v.findViewById(R.id.chkPais);
+        cbMes = v.findViewById(R.id.chkMes);
+        cbAno = v.findViewById(R.id.chkAno);
         paisesAfectadosDao = TerremotosDB.getDatabase(getActivity()).paisesAfectadosDao();
 
 
@@ -50,16 +57,29 @@ public class FiltroDialog extends DialogFragment {
                 .setPositiveButton(R.string.btn_aceptar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String mes = spnMes.getSelectedItem().toString();
-                        String ano = etAno.getText().toString();
-                        String pais = spnPais.getSelectedItem().toString();
+                        String mes = "";
+                        String ano = "";
+                        String pais = "";
+                        //TODO: Validar si el año introducido no supera el año actual
 
-                        if (mes.isEmpty() || ano.isEmpty() || pais.isEmpty()) {
+                        //Dependiendo de los checkbox seleccionados se envian los datos al activity atraves del interface
+                        if (cbPais.isChecked() && cbMes.isChecked() && cbAno.isChecked()) {
+                            listener.onAceptarDatosListenerMesAnoPais(spnMes.getSelectedItem().toString(), etAno.getText().toString(), spnPais.getSelectedItem().toString());
 
-                        } else {
-                            // enviar datos al activity atraves del Interface
-                            listener.onAceptarDatosListener(mes, ano, pais);
+                        }else if (cbAno.isChecked() && cbMes.isChecked()) {
+                            listener.onAceptarDatosListenerMesAno(spnMes.getSelectedItem().toString(), etAno.getText().toString());
 
+                        }else if (cbMes.isChecked()) {
+                            listener.onAceptarDatosListenerMes(spnMes.getSelectedItem().toString());
+
+                        }else if (cbAno.isChecked()) {
+                            listener.onAceptarDatosListenerAno(etAno.getText().toString());
+
+                        }else if (cbPais.isChecked()) {
+                            listener.onAceptarDatosListenerPais(spnPais.getSelectedItem().toString());
+
+                        }else if (cbAno.isChecked() && cbPais.isChecked()) {
+                            listener.onAceptarDatosListenerAnoPais(etAno.getText().toString(), spnPais.getSelectedItem().toString());
                         }
 
                     }

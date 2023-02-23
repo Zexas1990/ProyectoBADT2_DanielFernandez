@@ -60,14 +60,14 @@ public class TerremotoAdapter extends RecyclerView.Adapter<TerremotoAdapter.Terr
 
 
         }
-
+        //Metodo para enlazar los datos del terremoto con el layout
         public void bindTerremoto(Terremoto terremoto){
-
             tvNombre.setText(terremoto.getNombre());
-            tvMagnitud.setText((int) terremoto.getMagnitud());
+            tvMagnitud.setText(String.valueOf(terremoto.getMagnitud()));
             tvFecha.setText(terremoto.getFecha());
             tvCordenadas.setText(terremoto.getCordenadas());
             tvMuertos.setText(terremoto.getMuertos());
+            tvMuertos.append("\uD83D\uDC80");
             tvLugar.setText(terremoto.getLugar());
         }
 

@@ -38,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        System.out.println("******** Cargando Datos **********");
+
         cargarDB();
 
         btnFil = findViewById(R.id.btnFiltro);
         btnCon = findViewById(R.id.btnConsultar);
         tvFiltro = findViewById(R.id.tvFiltro);
         rvTerremotos = findViewById(R.id.rvTerremotos);
+
         rvTerremotos.setLayoutManager(new LinearLayoutManager(this));
         ArrayList<Terremoto> datos = new ArrayList<>();
         adapter = new TerremotoAdapter(datos);
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FiltroDialog dialog = new FiltroDialog();
                 dialog.show(getSupportFragmentManager(), "FiltroDialog");
+
 
             }
         }));
