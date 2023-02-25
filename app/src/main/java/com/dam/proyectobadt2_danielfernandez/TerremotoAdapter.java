@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dam.proyectobadt2_danielfernandez.entity.Terremoto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TerremotoAdapter extends RecyclerView.Adapter<TerremotoAdapter.TerremotoVH> {
     private ArrayList<Terremoto> datos;
@@ -75,6 +76,11 @@ public class TerremotoAdapter extends RecyclerView.Adapter<TerremotoAdapter.Terr
 
         public void setDatos(ArrayList<Terremoto> datos) {
         this.datos = datos;
+        notifyDataSetChanged();
+        }
+
+        public void setDatosDB(List<Terremoto> datos) {
+        this.datos = new ArrayList<>(datos);
         notifyDataSetChanged();
         }
 

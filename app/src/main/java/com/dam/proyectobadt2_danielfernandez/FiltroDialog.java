@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -25,6 +26,10 @@ public class FiltroDialog extends DialogFragment {
     CheckBox cbMes;
     CheckBox cbAno;
     PaisesAfectadosDao paisesAfectadosDao;
+    MainActivity mainActivity;
+    String mes = null;
+    String ano = null;
+    String pais = null;
 
     @NonNull
     @Override
@@ -50,6 +55,8 @@ public class FiltroDialog extends DialogFragment {
                 )
         );
 
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setView(v);
 
@@ -57,30 +64,33 @@ public class FiltroDialog extends DialogFragment {
                 .setPositiveButton(R.string.btn_aceptar, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        String mes = "";
-                        String ano = "";
-                        String pais = "";
-                        //TODO: Validar si el año introducido no supera el año actual
+
+
+                        //Validar si el año no supera el 2023
+                        if (cbAno.isChecked() && (Integer.parseInt(etAno.getText().toString()) > 2023)) {
+                            Toast.makeText(getActivity(), "El año introducido no es válido", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        //TODO: Validar si el año no te lo dan
+
+                        if(cbMes.isChecked()){
+                            mes = spnMes.getSelectedItem().toString();
+                        }
+                        if(cbAno.isChecked()){
+                            ano = etAno.getText().toString();
+
+
+                        }
+                        if(cbPais.isChecked()){
+                            pais = spnPais.getSelectedItem().toString();
+                        }
 
                         //Dependiendo de los checkbox seleccionados se envian los datos al activity atraves del interface
-                        if (cbPais.isChecked() && cbMes.isChecked() && cbAno.isChecked()) {
-                            listener.onAceptarDatosListenerMesAnoPais(spnMes.getSelectedItem().toString(), etAno.getText().toString(), spnPais.getSelectedItem().toString());
+                        listener.onAceptarDatosListenerMesAnoPais(mes, ano, pais);
 
-                        }else if (cbAno.isChecked() && cbMes.isChecked()) {
-                            listener.onAceptarDatosListenerMesAno(spnMes.getSelectedItem().toString(), etAno.getText().toString());
 
-                        }else if (cbMes.isChecked()) {
-                            listener.onAceptarDatosListenerMes(spnMes.getSelectedItem().toString());
 
-                        }else if (cbAno.isChecked()) {
-                            listener.onAceptarDatosListenerAno(etAno.getText().toString());
-
-                        }else if (cbPais.isChecked()) {
-                            listener.onAceptarDatosListenerPais(spnPais.getSelectedItem().toString());
-
-                        }else if (cbAno.isChecked() && cbPais.isChecked()) {
-                            listener.onAceptarDatosListenerAnoPais(etAno.getText().toString(), spnPais.getSelectedItem().toString());
-                        }
 
                     }
                 })
@@ -101,6 +111,23 @@ public class FiltroDialog extends DialogFragment {
         //metcosas
         AlertDialog dialog = builder.create();
         return dialog;
+    }
+
+    public void onAttach(@NonNull android.app.Activity activity) {
+        super.onAttach(activity);
+        try {
+            listener = (OnDatosListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnDatosListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        if(listener != null){
+            listener = null;
+        }
+        super.onDetach();
     }
 
 }
